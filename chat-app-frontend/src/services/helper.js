@@ -2,6 +2,7 @@ export function timeAgo(date) {
   const now = new Date();
   const past = new Date(date);
   const secondsAgo = Math.floor((now - past) / 1000);
+  if (secondsAgo < 0) secondsAgo=0
 
   if (secondsAgo < 60) return `${secondsAgo} seconds ago`;
   const minutesAgo = Math.floor(secondsAgo / 60);
