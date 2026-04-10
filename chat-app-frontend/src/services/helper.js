@@ -1,9 +1,10 @@
 export function timeAgo(date) {
+  if (!date) return "just now";
   const now = new Date();
   const past = new Date(date);
-  const secondsAgo = Math.floor((now - past) / 1000);
-  if (secondsAgo < 0) secondsAgo=0
-
+  let secondsAgo = Math.floor((now - past) / 1000);
+  // ✅ FIX: prevent negative time
+  if (secondsAgo < 0) secondsAgo = 0;
   if (secondsAgo < 60) return `${secondsAgo} seconds ago`;
   const minutesAgo = Math.floor(secondsAgo / 60);
   if (minutesAgo < 60) return `${minutesAgo} minutes ago`;

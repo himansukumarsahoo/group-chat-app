@@ -85,7 +85,6 @@ const Chat = () => {
 
   const sendMessage = async () => {
     if (stompClient && connected && input.trim()) {
-      console.log(input);
 
       const message = {
         sender: currentUser,
