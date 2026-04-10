@@ -1,5 +1,6 @@
 package com.chat.chat_app_backend.controller;
 
+import java.time.Instant;
 import java.time.LocalDateTime;
 
 import org.springframework.messaging.handler.annotation.DestinationVariable;
@@ -30,7 +31,7 @@ public class ChatController {
 		Message message = new Message();
 		message.setContent(request.getContent());
 		message.setSender(request.getSender());
-		message.setTimestamp(LocalDateTime.now());
+		message.setTimestamp(Instant.now());
 		
 		if(room != null) {
 			room.getMessages().add(message);

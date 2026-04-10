@@ -1,6 +1,6 @@
 package com.chat.chat_app_backend.entity;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -14,10 +14,10 @@ import lombok.Setter;
 public class Message {
 	private String sender;
 	private String content;
-	private LocalDateTime timestamp;
+	private Instant timestamp;
 	
 	public Message(String sender, String content) {
-		this.timestamp=LocalDateTime.now();
+		this.timestamp=Instant.now();
 		this.sender = sender;
 		this.content = content;
 	}
