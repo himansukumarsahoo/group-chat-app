@@ -1,7 +1,7 @@
 package com.chat.chat_app_backend.controller;
 
 import java.time.Instant;
-import java.time.LocalDateTime;
+
 
 import org.springframework.messaging.handler.annotation.DestinationVariable;
 import org.springframework.messaging.handler.annotation.MessageMapping;
@@ -23,7 +23,6 @@ public class ChatController {
 	public ChatController(RoomRepository roomRepository) {
 		this.roomRepository = roomRepository;
 	}
-	
 	@MessageMapping("/sendmessage/{roomId}")
 	@SendTo("/topic/room/{roomId}")
 	public Message sendMessage(@DestinationVariable String roomId,@RequestBody MessageRequest request) {
